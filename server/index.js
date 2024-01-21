@@ -18,6 +18,9 @@ mongoose
 // Initialize express app
 const app = express();
 
+// allow json as input for the server
+app.use(express.json({ limit: "50mb" }));
+
 //Initialize routes
 registerRouter(app);
 
