@@ -5,10 +5,11 @@ export type UserState = {
 };
 
 export type User = {
-  _id: string;
+  _id?: string;
   username: string;
   email: string;
   avatar: string;
+  password: string;
 };
 
 export type RootState = {

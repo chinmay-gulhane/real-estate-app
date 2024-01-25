@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import registerRouter from "./routes/index.js";
+import cookieParser from "cookie-parser";
 
 // dotenv package installed to store mongo url in env file
 dotenv.config();
@@ -20,6 +21,8 @@ const app = express();
 
 // allow json as input for the server
 app.use(express.json({ limit: "50mb" }));
+
+app.use(cookieParser());
 
 //Initialize routes
 registerRouter(app);
