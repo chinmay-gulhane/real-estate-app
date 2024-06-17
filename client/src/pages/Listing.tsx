@@ -13,7 +13,7 @@ import {
   FaParking,
   FaShare,
 } from "react-icons/fa";
-// import Contact from "../components/Contact";
+import Contact from "../components/Contact";
 import { RootState } from "../models/types";
 
 interface Listing {
@@ -159,7 +159,7 @@ export default function Listing() {
                 Contact landlord
               </button>
             )}
-            {/* {contact && <Contact listing={listing} />} */}
+            {contact && <Contact listing={listing} />}
           </div>
         </div>
       )}
