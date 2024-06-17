@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import registerRouter from "./routes/index.js";
 import cookieParser from "cookie-parser";
+import path from "path";
 
 // dotenv package installed to store mongo url in env file
 dotenv.config();
@@ -16,6 +17,8 @@ mongoose
     console.log(err);
   });
 
+const __dirname = path.resolve();
+
 // Initialize express app
 const app = express();
 
@@ -26,6 +29,12 @@ app.use(cookieParser());
 
 //Initialize routes
 registerRouter(app);
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
