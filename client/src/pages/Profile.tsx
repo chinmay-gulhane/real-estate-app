@@ -23,7 +23,7 @@ export default function Profile() {
   const { currentUser } = useSelector((state: RootState) => state.user);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { loading, error } = useSelector((state: RootState) => state.user);
-  const fileRef = useRef(null);
+  const fileRef = useRef<HTMLInputElement>(null);
   // const [file, setFile] = useState(undefined);
   const [file, setFile] = useState<File | undefined>(undefined);
   const [filePerc, setFilePerc] = useState(0);
@@ -77,6 +77,7 @@ export default function Profile() {
       },
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       (error) => {
+        console.log(error);
         setFileUploadError(true);
       },
       () => {

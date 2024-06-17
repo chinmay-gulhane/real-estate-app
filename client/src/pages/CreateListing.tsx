@@ -5,7 +5,7 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { app } from "../firebase";
 import { useSelector } from "react-redux";
 import { RootState } from "../models/types";
@@ -77,6 +77,7 @@ export default function CreateListing() {
         })
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         .catch((err: any) => {
+          console.log(err);
           setImageUploadError("Image upload failed (2 mb per image");
           setuploading(false);
         });
